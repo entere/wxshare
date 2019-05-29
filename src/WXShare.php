@@ -26,10 +26,12 @@ class WXShare
     {
 
         $apis = [
-            'onMenuShareAppMessage',
-            'onMenuShareTimeline',
-            'onMenuShareQQ',
-            'onMenuShareWeibo',
+            'onMenuShareTimeline',       // 分享到朋友圈接口
+            'onMenuShareAppMessage',  //  分享到朋友接口
+            'onMenuShareQQ',         // 分享到QQ接口
+            'onMenuShareWeibo'      // 分享到微博接口
+
+
 
         ];
 
