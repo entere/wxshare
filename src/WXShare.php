@@ -30,7 +30,7 @@ class WXShare
             'onMenuShareTimeline',
             'onMenuShareQQ',
             'onMenuShareWeibo',
-            'onMenuShareQZone',
+
         ];
 
         $result = $this->app->jssdk->buildConfig($apis, $debug = false, $beta = false, $json = true);
