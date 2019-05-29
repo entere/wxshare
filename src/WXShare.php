@@ -24,7 +24,8 @@ class WXShare
      */
     public function getConfig($debug = false, $url = '')
     {
-        $js = $this->wxApp->js;
+
+        $jssdk = $this->wxApp->jssdk;
 
         if ($url == '') {
             $url = $_SERVER["HTTP_REFERER"];
@@ -33,8 +34,18 @@ class WXShare
                 return 'not found http referer';
             }
         }
-        $js->setUrl($url);
+        $jssdk->setUrl($url);
+        $apis = [
+            'onMenuShareAppMessage',
+            'onMenuShareTimeline',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'onMenuShareQZone',
+        ];
 
-        return $js->config(array('onMenuShareAppMessage','onMenuShareTimeline','onMenuShareQQ', 'onMenuShareWeibo','onMenuShareQZone'), $debug);
+        $result = $jssdk->buildConfig($apis, $debug = false, $beta = false, $json = true);
+        return $result;
+
+        //return $jssdk->config(array(), $debug);
     }
 }
