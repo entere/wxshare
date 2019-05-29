@@ -1,0 +1,22 @@
+{
+    "name": "entere/wxshare",
+    "description": "weixin share",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "entere",
+            "email": "entere@126.com",
+            "homepage": "https://entere.github.io"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0",
+        "overtrue/wechat": "4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "wxshare\\": "src/"
+        }
+    }
+}
