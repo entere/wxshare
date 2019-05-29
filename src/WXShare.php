@@ -5,7 +5,7 @@ use EasyWeChat\Factory;
 
 class WXShare
 {
-    private $wxApp;
+    private $app;
 
     /**
      * 初始化应用配置文件，用了EasyWeChat
@@ -13,7 +13,7 @@ class WXShare
      */
     public function __construct($options)
     {
-        $this->wxApp  = Factory::officialAccount($options);
+        $this->app  = Factory::officialAccount($options);
     }
 
     /**
@@ -22,19 +22,9 @@ class WXShare
      * @param  string  $url   [description]
      * @return [type]         [description]
      */
-    public function getConfig($debug = false, $url = '')
+    public function getConfig($url = '', $debug = false)
     {
 
-        $jssdk = $this->wxApp->jssdk;
-
-        if ($url == '') {
-            $url = $_SERVER["HTTP_REFERER"];
-        } else {
-            if (isset($_SERVER["HTTP_REFERER"])) {
-                return 'not found http referer';
-            }
-        }
-        $jssdk->setUrl($url);
         $apis = [
             'onMenuShareAppMessage',
             'onMenuShareTimeline',
@@ -43,9 +33,9 @@ class WXShare
             'onMenuShareQZone',
         ];
 
-        $result = $jssdk->buildConfig($apis, $debug = false, $beta = false, $json = true);
+        $result = $this->app->jssdk->buildConfig($apis, $debug = false, $beta = false, $json = true);
         return $result;
 
-        //return $jssdk->config(array(), $debug);
+
     }
 }

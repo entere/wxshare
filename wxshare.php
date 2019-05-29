@@ -10,7 +10,7 @@ $options = [
     'token'     => '',
     'log' => [
         'level' => 'debug',
-        'file'  => '/tmp/easywechat.log',
+        'file'  => '/tmp/wxshare.log',
     ],
 ];
 
